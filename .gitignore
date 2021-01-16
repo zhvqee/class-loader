@@ -1,0 +1,6 @@
+# Project exclude paths
+/core-loader/target/
+/core-project/target/
+/loader-api/target/
+/main-project/target/
+/model-loader/target/

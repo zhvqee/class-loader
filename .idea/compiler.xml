@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="model-loader" />
+        <module name="main-project" />
+        <module name="loader-api" />
+        <module name="core-loader" />
+        <module name="core-project" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
