@@ -30,4 +30,11 @@ public class CoreClassLoader extends URLClassLoader {
         super(urls);
     }
 
+    @Override
+    public Class<?> loadClass(String name) throws ClassNotFoundException {
+        System.out.print(name + " is load Class ,");
+        Class<?> aClass = super.loadClass(name);
+        System.out.println(",current load class is " + aClass.getClassLoader());
+        return aClass;
+    }
 }
