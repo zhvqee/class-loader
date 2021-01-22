@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="core-loader" />
-        <module name="core-project" />
-        <module name="loader-api" />
+        <module name="service-spi" />
         <module name="main-project" />
+        <module name="product-spi-impl" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="core-project" target="1.5" />
       <module name="model-loader" target="1.5" />
     </bytecodeTargetLevel>
   </component>

@@ -1,4 +1,4 @@
-package com.api;
+package core.logger;
 
 public interface Logger {
 

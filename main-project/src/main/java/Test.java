@@ -1,35 +1,30 @@
 import com.api.Factory;
-import com.api.Logger;
-import core.loader.CoreClassLoader;
+import com.core.ObjectModel;
+import com.service.provider.ServiceProvider;
+import loader.CoreClassLoader;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URL;
+import java.lang.reflect.Method;
+import java.net.MalformedURLException;
 
 public class Test {
-    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
-
-        CoreClassLoader coreClassLoader = new CoreClassLoader(new URL[0]);
-
-        Thread.currentThread().setContextClassLoader(coreClassLoader);
-        Class<?> aClass1 = coreClassLoader.loadClass("org.qee.core.ObjectFactory");
-
-        System.out.println(" main->Logger.class.getClassLoader():" + Logger.class.getClassLoader());
-
-        Logger logger = new LoggerImpl();
-        System.out.println(" main->LoggerImpl.class.getClassLoader():" + logger.getClass().getClassLoader());
-        Constructor<?> constructor = aClass1.getConstructor(Logger.class);
-        Factory factory = (Factory) constructor.newInstance(logger);
 
 
-        // 通过另一个classLoader加载NamedService
+    public static void main(String[] args) throws IllegalAccessException, InstantiationException, ClassNotFoundException, MalformedURLException, NoSuchMethodException, InvocationTargetException {
+        // className :
+        Thread.currentThread().setContextClassLoader(CoreClassLoader.getClassLoader());
+        Factory factory = ServiceProvider.load("core.spi.impl.ObjectFactory");
+        User user = factory.getObject(User.class);
+        user.setName("name");
 
-        Class<?> aClass = Class.forName("com.api.NamedService", false, coreClassLoader);
-        User user = factory.getObject(User.class, aClass.newInstance());
+        ObjectModel objectModel = factory.getObjectModel(User.class);
+        System.out.println(objectModel);
 
-        user.setName("abc");
+        Method getObject = objectModel.getClass().getMethod("getObject");
+        User user1 = (User) getObject.invoke(objectModel);
+        System.out.println(ObjectModel.class.getClassLoader());
+        System.out.println(objectModel.getClass().getClassLoader());
+        System.out.println(user1);
         System.out.println(user);
-        System.out.println(user.getClass().getClassLoader());
-
     }
 }
