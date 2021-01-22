@@ -11,7 +11,6 @@
     <modules>
         <module>main-project</module>
         <module>core-loader</module>
-        <module>model-loader</module>
         <module>core-project</module>
         <module>loader-api</module>
     </modules>

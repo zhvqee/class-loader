@@ -21,7 +21,12 @@ public class Test {
         Constructor<?> constructor = aClass1.getConstructor(Logger.class);
         Factory factory = (Factory) constructor.newInstance(logger);
 
-        User user = factory.getObject(User.class);
+
+        // 通过另一个classLoader加载NamedService
+
+        Class<?> aClass = Class.forName("com.api.NamedService", false, coreClassLoader);
+        User user = factory.getObject(User.class, aClass.newInstance());
+
         user.setName("abc");
         System.out.println(user);
         System.out.println(user.getClass().getClassLoader());

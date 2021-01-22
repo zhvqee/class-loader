@@ -14,7 +14,7 @@ public class CoreClassLoader extends URLClassLoader {
 
     private String path = "org.qee.core";
 
-    private String location = "/Users/zhuqi/Downloads/classloader/core";
+    private String location = "/Users/zhuqi/Documents/code";
 
     public CoreClassLoader(URL[] urls, ClassLoader parent) {
         super(urls, parent);
