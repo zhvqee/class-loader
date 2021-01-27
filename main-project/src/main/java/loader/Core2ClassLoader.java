@@ -6,6 +6,9 @@ import java.io.InputStream;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+/**
+ * 错误样例
+ */
 public class Core2ClassLoader extends ClassLoader {
 
     private static String location = "/Users/zhuqi/Documents/workspace/class-loader/product-spi-impl/target/";

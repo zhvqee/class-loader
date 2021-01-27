@@ -13,9 +13,7 @@ public class Test {
 
     public static void main(String[] args) throws IllegalAccessException, InstantiationException, ClassNotFoundException, MalformedURLException, NoSuchMethodException, InvocationTargetException {
         // className :
-      //  Thread.currentThread().setContextClassLoader(CoreClassLoader.getClassLoader());
-        Core2ClassLoader core2ClassLoader = new Core2ClassLoader();
-        Thread.currentThread().setContextClassLoader(core2ClassLoader);
+        Thread.currentThread().setContextClassLoader(CoreClassLoader.getClassLoader());
         Factory factory = ServiceProvider.load("core.spi.impl.ObjectFactory");
         User user = factory.getObject(User.class);
         user.setName("name");

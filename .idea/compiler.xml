@@ -6,9 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="service-spi" />
         <module name="main-project" />
         <module name="product-spi-impl" />
+        <module name="service-spi" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CoreClassLoader extends URLClassLoader {
 
-    private static String location = "/Users/zhuqi/Documents/workspace/class-loader/product-spi-impl/target/";
+    private static String location = "/Users/xxx/Documents/workspace/class-loader/product-spi-impl/target/";
 
 
     public static ClassLoader getClassLoader() throws MalformedURLException {
