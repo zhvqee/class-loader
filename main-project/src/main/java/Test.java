@@ -1,7 +1,6 @@
 import com.api.Factory;
 import com.core.ObjectModel;
 import com.service.provider.ServiceProvider;
-import loader.Core2ClassLoader;
 import loader.CoreClassLoader;
 
 import java.lang.reflect.InvocationTargetException;
@@ -13,7 +12,9 @@ public class Test {
 
     public static void main(String[] args) throws IllegalAccessException, InstantiationException, ClassNotFoundException, MalformedURLException, NoSuchMethodException, InvocationTargetException {
         // className :
-        Thread.currentThread().setContextClassLoader(CoreClassLoader.getClassLoader());
+        String location = "/Users/xxxx/Dcuments/workspace/class-loader/product-spi-impl/target/";
+
+        Thread.currentThread().setContextClassLoader(CoreClassLoader.getClassLoader(location));
         Factory factory = ServiceProvider.load("core.spi.impl.ObjectFactory");
         User user = factory.getObject(User.class);
         user.setName("name");
